@@ -1,0 +1,36 @@
+.SongRow {
+  margin-left: 20px;
+  padding: 20px;
+
+  z-index: 100;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.SongRow > div:first-child {
+  display: flex;
+  align-items: center;
+}
+.SongRow:hover {
+  cursor: pointer;
+  background-color: #000;
+  opacity: 0.8;
+}
+.songInfo {
+  margin-left: 20px;
+}
+.songInfo > h1 {
+  font-size: 16px;
+}
+.songInfo > p {
+  font-size: 14px;
+  margin-top: 3px;
+  color: gray;
+}
+.songImage {
+  width: 40px;
+  height: 40px;
+}
+.timing {
+  color: gray;
+}
