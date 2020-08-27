@@ -1,32 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import styling from "./SongRow.module.css";
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
-import ReactAudioPlayer from "react-audio-player";
-import song from "../../../assets/song.mp3";
+// import song from "../../../assets/song.mp3";
 import { useDataLayerValue } from "../../../Context/DataLayer";
+import ReactAudioPlayer from "react-audio-player";
 
 export default function SongRow({ track }) {
-  const [{ discover_weekly }, dispatch] = useDataLayerValue();
+  const [{ playlists, discover_weekly }, dispatch] = useDataLayerValue();
 
-  console.log("Track::::", track);
-  // console.log("Song", track.album.href);
-  // let time = track.duration_ms / 100;
-
-  // useEffect(() => {
-  //   // let id = playlists?.items?.[index]?.id;
-  //   if (playlists) {
-  //     spotify.getTrack;
-  //     spotify.getPlaylist(id).then((response) => {
-  //       dispatch({
-  //         type: "SET_DISCOVER_WEEKLY",
-  //         discover_weekly: response,
-  //       });
-  //     });
-  //   }
-  // }, [playlists, index]);
-
+  let [playSong, setPlaySong] = useState(false);
+  // if (track) {
+  //   console.log("NO NO NO", track);
+  // }
+  // if (playSong) {
+  //   dispatch({
+  //     type: "CURRENT_SONG",
+  //     current_song: track.preview_url,
+  //   });
+  //   console.log("FINALLY", track.preview_url);
+  // }
+  let hello = () => {
+    dispatch({
+      type: "CURRENT_SONG",
+      current_song: {
+        URL: track.preview_url,
+        image: track.album.images[0].url,
+        name: track.name,
+        artist: track.artists.map((artist) => artist.name).join(", "),
+        album: track.album.name,
+      },
+    });
+  };
   return (
-    <div className={styling.SongRow}>
+    <div className={styling.SongRow} onClick={hello}>
       <div>
         <img
           className={styling.songImage}
@@ -42,10 +48,9 @@ export default function SongRow({ track }) {
         </div>
       </div>
       <div className={styling.timing}>
-        <PlayCircleFilledIcon />
-        <ReactAudioPlayer src={track.uri} controls />
+        {/* <PlayCircleFilledIcon onClick={hello} /> */}
+        {/* <ReactAudioPlayer src={track.preview_url} controls /> */}
       </div>
-      {/* <audio src={track.href}></audio> */}
     </div>
   );
 }

@@ -25,15 +25,6 @@ export default function Sidebar() {
     }
   }, [playlists, index]);
 
-  // useEffect(() => {
-  if (discover_weekly) {
-    console.log("NO NO NO", discover_weekly);
-    // spotify.getEpisode(id).then((response) => {
-    //   console.log("hellovmklfvmkl fkfff");
-    // });
-  }
-  // }, []);
-
   return (
     <div className={styling.Sidebar}>
       <img className={styling.logo} src={logo} alt="logo" />

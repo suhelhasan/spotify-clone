@@ -2,15 +2,20 @@
   display: grid;
   place-items: center;
   height: 100vh;
-  background-color: #000;
+  /* background-color: #000; */
+  background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
 }
 .Login > img {
-  width: 100%;
+  width: 30%;
 }
 .Login > a {
-  padding: 20px;
+  padding: 15px 25px;
   border-radius: 99px;
   background-color: #1db954;
   color: #fff;
   text-decoration: none;
+  transition: 200ms color ease-in;
+}
+.Login > a:hover {
+  opacity: 0.8;
 }

@@ -30,6 +30,11 @@ const reducer = (state, action) => {
         ...state,
         discover_weekly: action.discover_weekly,
       };
+    case "CURRENT_SONG":
+      return {
+        ...state,
+        current_song: action.current_song,
+      };
     default:
       return state;
   }

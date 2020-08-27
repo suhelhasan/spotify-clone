@@ -7,7 +7,7 @@ export default function Login() {
   return (
     <div className={styling.Login}>
       <img src={icon} alt="logo" />
-      <a href={loginUrl}>LOGIN WITH SPOTIFY</a>
+      <a href={loginUrl}>SIGN IN TO SPOTIFY</a>
     </div>
   );
 }
