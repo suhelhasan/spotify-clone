@@ -5,7 +5,7 @@ import { Avatar } from "@material-ui/core";
 import { useDataLayerValue } from "../../../Context/DataLayer";
 
 export default function Header() {
-  const [{ user }, dispatch] = useDataLayerValue();
+  const [{ user }] = useDataLayerValue();
 
   return (
     <div className={styling.Header}>

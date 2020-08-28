@@ -1,24 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import styling from "./SongRow.module.css";
-import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
-// import song from "../../../assets/song.mp3";
+// import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import { useDataLayerValue } from "../../../Context/DataLayer";
-import ReactAudioPlayer from "react-audio-player";
 
 export default function SongRow({ track }) {
-  const [{ playlists, discover_weekly }, dispatch] = useDataLayerValue();
+  // eslint-disable-next-line no-empty-pattern
+  const [{}, dispatch] = useDataLayerValue();
 
-  let [playSong, setPlaySong] = useState(false);
-  // if (track) {
-  //   console.log("NO NO NO", track);
-  // }
-  // if (playSong) {
-  //   dispatch({
-  //     type: "CURRENT_SONG",
-  //     current_song: track.preview_url,
-  //   });
-  //   console.log("FINALLY", track.preview_url);
-  // }
   let hello = () => {
     dispatch({
       type: "CURRENT_SONG",

@@ -8,7 +8,7 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import SongRow from "./SongRow/SongRow";
 
 export default function Body({ spotify }) {
-  let [{ discover_weekly }, dispatch] = useDataLayerValue();
+  let [{ discover_weekly }] = useDataLayerValue();
 
   return (
     <div className={styling.Body}>

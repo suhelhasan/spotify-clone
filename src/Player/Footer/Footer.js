@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React from "react";
 import styling from "./Footer.module.css";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
@@ -8,59 +8,16 @@ import RepeatIcon from "@material-ui/icons/Repeat";
 import { Grid, Slider } from "@material-ui/core";
 import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
 import VolumeDownIcon from "@material-ui/icons/VolumeDown";
-import ReactAudioPlayer from "react-audio-player";
 import { useDataLayerValue } from "../../Context/DataLayer";
 import PauseCircleOutlineIcon from "@material-ui/icons/PauseCircleOutline";
-import { Howl } from "howler";
 import UseAudio from "./audio";
 export default function Footer() {
-  const [{ current_song }, dispatch] = useDataLayerValue();
+  const [{ current_song }] = useDataLayerValue();
+  const [playing, toggle] = UseAudio(current_song?.URL);
 
   if (!current_song) {
     return null;
   }
-  // const UseAudio = (url) => {
-  //   const [audio] = useState(new Audio(url));
-  //   audio.volume = 0.1;
-  //   const [playing, setPlaying] = useState(false);
-
-  //   const toggle = () => setPlaying(!playing);
-
-  //   useEffect(() => {
-  //     playing ? audio.play() : audio.pause();
-  //   }, [playing, audio]);
-
-  //   useEffect(() => {
-  //     audio.addEventListener("ended", () => setPlaying(false));
-  //     return () => {
-  //       audio.removeEventListener("ended", () => setPlaying(false));
-  //     };
-  //   }, [audio]);
-
-  //   return [playing, toggle];
-  // };
-
-  // const UseAudio = (url) => {
-  //   const [audio] = useState(new Audio(url));
-  //   audio.volume = 0.1;
-  //   const [playing, setPlaying] = useState(true);
-
-  //   const toggle = () => setPlaying(!playing);
-
-  //   useEffect(() => {
-  //     playing ? audio.play() : audio.pause();
-  //   }, [playing, audio]);
-
-  //   useEffect(() => {
-  //     audio.addEventListener("ended", () => setPlaying(false));
-  //     return () => {
-  //       audio.removeEventListener("ended", () => setPlaying(false));
-  //     };
-  //   }, [audio]);
-
-  //   return [playing, toggle];
-  // };
-  const [playing, toggle] = UseAudio(current_song?.URL);
 
   return (
     <div className={styling.Footer}>

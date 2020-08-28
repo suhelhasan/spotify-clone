@@ -10,7 +10,7 @@ import SpotifyWebApi from "spotify-web-api-js";
 
 const spotify = new SpotifyWebApi();
 export default function Sidebar() {
-  const [{ playlists, discover_weekly }, dispatch] = useDataLayerValue();
+  const [{ playlists }, dispatch] = useDataLayerValue();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function Sidebar() {
         });
       });
     }
-  }, [playlists, index]);
+  }, [playlists, index, dispatch]);
 
   return (
     <div className={styling.Sidebar}>
