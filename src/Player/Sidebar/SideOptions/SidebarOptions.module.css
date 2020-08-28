@@ -1,7 +1,7 @@
 .SideOptions {
   display: flex;
   align-items: center;
-  color: grey;
+  color: rgb(168, 168, 168);
   height: 40px;
   cursor: pointer;
   transition: 200ms color ease-in;
@@ -11,7 +11,11 @@
   color: #fff;
 }
 .sidebarOption_icon {
-  padding: 0 10px;
+  margin: 0 14px 0 20px;
+  font-size: 27px;
+}
+.SideOptions > h4 {
+  font-size: 14px;
 }
 .SideOptions > p {
   margin: 10px 0 0 20px;

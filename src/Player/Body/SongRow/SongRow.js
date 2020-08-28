@@ -1,13 +1,12 @@
 import React from "react";
 import styling from "./SongRow.module.css";
-// import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import { useDataLayerValue } from "../../../Context/DataLayer";
 
-export default function SongRow({ track }) {
+export default function SongRow({ track, sequence }) {
   // eslint-disable-next-line no-empty-pattern
   const [{}, dispatch] = useDataLayerValue();
 
-  let hello = () => {
+  let playSong = () => {
     dispatch({
       type: "CURRENT_SONG",
       current_song: {
@@ -20,8 +19,9 @@ export default function SongRow({ track }) {
     });
   };
   return (
-    <div className={styling.SongRow} onClick={hello}>
+    <div className={styling.SongRow} onClick={playSong}>
       <div>
+        <p className={styling.sequenceNum}>{`${sequence}  `}</p>
         <img
           className={styling.songImage}
           src={track.album.images[0].url}
@@ -35,10 +35,7 @@ export default function SongRow({ track }) {
           </p>
         </div>
       </div>
-      <div className={styling.timing}>
-        {/* <PlayCircleFilledIcon onClick={hello} /> */}
-        {/* <ReactAudioPlayer src={track.preview_url} controls /> */}
-      </div>
+      <div className={styling.timing}></div>
     </div>
   );
 }

@@ -7,6 +7,11 @@
   display: flex;
   justify-content: space-between;
 }
+.sequenceNum {
+  color: grey;
+  padding-right: 15px;
+  font-weight: bold;
+}
 .SongRow > div:first-child {
   display: flex;
   align-items: center;

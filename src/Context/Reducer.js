@@ -25,10 +25,10 @@ const reducer = (state, action) => {
         ...state,
         playlists: action.playlists,
       };
-    case "SET_DISCOVER_WEEKLY":
+    case "SET_user_playlist":
       return {
         ...state,
-        discover_weekly: action.discover_weekly,
+        user_playlist: action.user_playlist,
       };
     case "CURRENT_SONG":
       return {

@@ -4,6 +4,7 @@ const UseAudio = (url) => {
   const [audio, setAudio] = useState(new Audio());
   useEffect(() => {
     audio.pause();
+    setPlaying(true);
     setAudio(new Audio(url));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);

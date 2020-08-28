@@ -2,33 +2,37 @@ import React from "react";
 import styling from "./Body.module.css";
 import Header from "./Header/Header";
 import { useDataLayerValue } from "../../Context/DataLayer";
-import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
-import FavoriteIcon from "@material-ui/icons/Favorite";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+// import PauseIcon from "@material-ui/icons/Pause";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import SongRow from "./SongRow/SongRow";
 
 export default function Body({ spotify }) {
-  let [{ discover_weekly }] = useDataLayerValue();
+  let [{ user_playlist }] = useDataLayerValue();
 
   return (
     <div className={styling.Body}>
       <Header spotify={spotify} />
       <div className={styling.BodyInfo}>
-        <img src={discover_weekly?.images[0].url} alt="" />
+        <img src={user_playlist?.images[0].url} alt="" />
         <div className={styling.infoText}>
-          <b>PLAYLIST</b>
-          <h2>Discover Weekly</h2>
-          <p>{discover_weekly?.description}</p>
+          <b>{user_playlist?.type.toUpperCase()}</b>
+          <h2>{user_playlist?.name}</h2>
+          <p>
+            {user_playlist?.description
+              ? user_playlist?.description
+              : `${user_playlist?.owner?.display_name}'s playlist`}
+          </p>
         </div>
       </div>
       <div className={styling.bodySongs}>
         <div className={styling.bodyIcons}>
-          <PlayCircleFilledIcon className={styling.body_shuffle} />
-          <FavoriteIcon fontSize="large" />
+          <PlayArrowIcon className={styling.body_shuffle} />
+          {/* <FavoriteIcon fontSize="large" /> */}
           <MoreHorizIcon />
         </div>
-        {discover_weekly?.tracks.items.map((item) => (
-          <SongRow track={item.track} />
+        {user_playlist?.tracks.items.map((item, index) => (
+          <SongRow track={item.track} sequence={index + 1} />
         ))}
       </div>
     </div>

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import styling from "./Sidebar.module.css";
 import logo from "../../assets/spotify-icon.png";
 import SideOptions from "./SideOptions/SideOptions";
-import HomeIcon from "@material-ui/icons/Home";
-import SearchIcon from "@material-ui/icons/Search";
-import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
+// import HomeIcon from "@material-ui/icons/Home";
+// import SearchIcon from "@material-ui/icons/Search";
+// import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
 import { useDataLayerValue } from "../../Context/DataLayer";
 import SpotifyWebApi from "spotify-web-api-js";
-
+import { VscHome, VscLibrary } from "react-icons/vsc";
+import { IoIosSearch } from "react-icons/io";
 const spotify = new SpotifyWebApi();
 export default function Sidebar() {
   const [{ playlists }, dispatch] = useDataLayerValue();
@@ -18,8 +19,8 @@ export default function Sidebar() {
     if (playlists) {
       spotify.getPlaylist(id).then((response) => {
         dispatch({
-          type: "SET_DISCOVER_WEEKLY",
-          discover_weekly: response,
+          type: "SET_user_playlist",
+          user_playlist: response,
         });
       });
     }
@@ -28,11 +29,11 @@ export default function Sidebar() {
   return (
     <div className={styling.Sidebar}>
       <img className={styling.logo} src={logo} alt="logo" />
-      <SideOptions title="Home" Icon={HomeIcon} />
-      <SideOptions title="Search" Icon={SearchIcon} />
-      <SideOptions title="Your Library" Icon={LibraryMusicIcon} />
+      <SideOptions title="Home" Icon={VscHome} />
+      <SideOptions title="Search" Icon={IoIosSearch} />
+      <SideOptions title="Your Library" Icon={VscLibrary} />
       <br />
-      <b className={styling.sidebarTitle}>PLAYLIST</b>
+      <b className={styling.sidebarTitle}>PLAYLISTS</b>
       <hr />
       {playlists?.items?.map((playlist, i) => (
         <SideOptions

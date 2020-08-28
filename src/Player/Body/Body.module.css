@@ -1,6 +1,6 @@
 .Body {
-  padding: 30px;
-  flex: 0.8;
+  padding: 14px 24px;
+  flex: 0.83;
   height: 100vh;
   color: #fff;
   overflow-y: overlay;
@@ -15,19 +15,21 @@
   padding: 10px;
 }
 .BodyInfo > img {
-  height: 20vw;
-  margin: 0 20px;
+  height: 16vw;
+  margin-right: 20px;
   box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
 }
 .infoText {
   flex: 1;
 }
 .infoText > h2 {
-  font-size: 48px;
+  font-size: 5em;
   margin-bottom: 10px;
 }
 .infoText > p {
   font-size: 14 px;
+  font-weight: bold;
+  color: rgb(185, 184, 184);
 }
 .bodySongs {
   margin: 20px -30px;
@@ -35,13 +37,18 @@
 .bodyIcons {
   display: flex;
   align-items: center;
+  color: rgb(182, 181, 181);
 }
-.bodyIcons > .MuiSvgIcon-root {
-  margin-right: 20px !important;
-}
+
 .body_shuffle {
-  font-size: 80px !important;
-  margin: 20px 0px 20px 50px;
+  font-size: 40px !important;
+  margin: 20px 25px 20px 50px;
+  background-color: #1db954;
+  color: #fff;
+  padding: 10px !important;
+  border-radius: 50%;
+  width: 55px !important;
+  height: 55px !important;
 }
 .body_shuffle:hover {
   transition: 100ms transform ease-in;

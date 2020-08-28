@@ -1,15 +1,15 @@
 .Sidebar {
-  flex: 0.2;
+  flex: 0.17;
   height: 100vh;
   color: #fff;
   min-width: 230px;
   background-color: #040404;
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 .logo {
-  /* object-fit: contain; */
-  height: 60px;
+  object-fit: contain;
+  height: 85px;
   padding: 10px;
   margin-right: auto;
 }

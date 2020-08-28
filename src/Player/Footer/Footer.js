@@ -25,7 +25,7 @@ export default function Footer() {
         <img className={styling.albumLogo} src={current_song?.image} alt="" />
         <div className={styling.footerSonginfo}>
           <h4>{current_song?.name}</h4>
-          <p>{`${current_song?.artist} -  ${current_song?.album}`}</p>
+          <p>{current_song?.artist}</p>
         </div>
       </div>
 
