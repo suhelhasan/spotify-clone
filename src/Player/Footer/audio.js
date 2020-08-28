@@ -2,13 +2,20 @@ import { useState, useEffect } from "react";
 
 const UseAudio = (url) => {
   const [audio, setAudio] = useState(new Audio());
+  const [duration, setDuration] = useState(0);
+  const [volumeLevel, setVolumeLevel] = useState(0.1);
   useEffect(() => {
     audio.pause();
     setPlaying(true);
+
     setAudio(new Audio(url));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
-  audio.volume = 0.1;
+
+  // useEffect(() => {
+  //   setDuration(audio.duration);
+  // }, [audio]);
+  audio.volume = volumeLevel;
 
   const [playing, setPlaying] = useState(true);
 
@@ -25,6 +32,6 @@ const UseAudio = (url) => {
     };
   }, [audio]);
 
-  return [playing, toggle];
+  return [duration, playing, toggle, volumeLevel, setVolumeLevel];
 };
 export default UseAudio;

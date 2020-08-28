@@ -5,19 +5,27 @@ import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import ShuffleIcon from "@material-ui/icons/Shuffle";
 import RepeatIcon from "@material-ui/icons/Repeat";
-import { Grid, Slider } from "@material-ui/core";
-import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
+import { Slider } from "@material-ui/core";
 import VolumeDownIcon from "@material-ui/icons/VolumeDown";
+import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import { useDataLayerValue } from "../../Context/DataLayer";
 import PauseCircleOutlineIcon from "@material-ui/icons/PauseCircleOutline";
 import UseAudio from "./audio";
 export default function Footer() {
   const [{ current_song }] = useDataLayerValue();
-  const [playing, toggle] = UseAudio(current_song?.URL);
+  const [duration, playing, toggle, volumeLevel, setVolumeLevel] = UseAudio(
+    current_song?.URL
+  );
 
   if (!current_song) {
     return null;
   }
+  if (duration) {
+    console.log("hello hello", duration);
+  }
+  let handleChange = (event, newValue) => {
+    setVolumeLevel(newValue);
+  };
 
   return (
     <div className={styling.Footer}>
@@ -30,37 +38,42 @@ export default function Footer() {
       </div>
 
       <div className={styling.FooterCenter}>
-        <ShuffleIcon className={styling.footerGreen} />
-        <SkipPreviousIcon className={styling.footerIcon} />
-        {playing ? (
-          <PauseCircleOutlineIcon
-            fontSize="large"
-            className={styling.footerIcon}
-            onClick={toggle}
-          />
-        ) : (
-          <PlayCircleOutlineIcon
-            fontSize="large"
-            className={styling.footerIcon}
-            onClick={toggle}
-          />
-        )}
+        <div className={styling.allButtons}>
+          <ShuffleIcon className={styling.footerGreen} />
+          <SkipPreviousIcon className={styling.footerIcon} />
+          {playing ? (
+            <PauseCircleOutlineIcon
+              fontSize="large"
+              className={styling.footerIcon}
+              onClick={toggle}
+            />
+          ) : (
+            <PlayCircleOutlineIcon
+              fontSize="large"
+              className={styling.footerIcon}
+              onClick={toggle}
+            />
+          )}
 
-        <SkipNextIcon className={styling.footerIcon} />
-        <RepeatIcon className={styling.footerGreen} />
+          <SkipNextIcon className={styling.footerIcon} />
+          <RepeatIcon className={styling.footerGreen} />
+        </div>
+        <div className={styling.lengthSlider}>
+          <Slider />
+        </div>
       </div>
       <div className={styling.FooterRight}>
-        <Grid container spacing={2}>
-          <Grid item>
-            <PlaylistPlayIcon />
-          </Grid>
-          <Grid item>
-            <VolumeDownIcon />
-          </Grid>
-          <Grid item xs>
-            <Slider defaultValue={5} />
-          </Grid>
-        </Grid>
+        <VolumeDownIcon className={styling.volumeButton} />
+        <Slider
+          value={volumeLevel}
+          step={0.05}
+          max={1}
+          min={0}
+          onChange={handleChange}
+          aria-labelledby="continuous-slider"
+          className={styling.slider}
+        />
+        <VolumeUpIcon className={styling.volumeButton} />
       </div>
     </div>
   );

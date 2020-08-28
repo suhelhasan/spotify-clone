@@ -15,7 +15,6 @@
   display: flex;
   align-items: center;
   color: #fff;
-  max-width: 300px;
 }
 .albumLogo {
   height: 60px;
@@ -32,12 +31,21 @@
 
 .FooterCenter {
   flex: 0.4;
-  /* padding: 0 100px; */
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.allButtons {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   max-width: 300px;
+}
+.lengthSlider {
+  width: 100%;
 }
 .footerGreen {
   color: #1ed15e;
@@ -47,13 +55,19 @@
   transition: transform 0.2s ease-in-out;
   transform: scale(1.2) !important;
 }
-.FooterRight * .MuiSlider-root {
-  color: green !important;
-}
+
 .FooterRight {
   flex: 0.3;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   color: #fff;
+}
+.volumeButton {
+  font-size: 21px !important;
+}
+.slider {
+  color: #1ed15e !important;
+  width: 150px !important;
+  margin: 0 10px;
 }

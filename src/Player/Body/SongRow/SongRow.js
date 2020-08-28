@@ -18,6 +18,10 @@ export default function SongRow({ track, sequence }) {
       },
     });
   };
+  // if (track) {
+  //   let sec = track.duration_ms / 1000;
+  //   console.log("no no no no", track);
+  // }
   return (
     <div className={styling.SongRow} onClick={playSong}>
       <div>
