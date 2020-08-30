@@ -44,8 +44,16 @@
   width: 100%;
   max-width: 300px;
 }
-.lengthSlider {
+.lengthSliderDiv {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  color: grey;
+}
+.lengthSlider {
+  color: grey !important;
+  width: 350px !important;
+  margin: 0 10px;
 }
 .footerGreen {
   color: #1ed15e;

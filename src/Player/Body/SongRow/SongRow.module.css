@@ -38,4 +38,7 @@
 }
 .timing {
   color: gray;
+  font-size: 25px;
+  padding-right: 25px;
+  color: #1ed15e;
 }

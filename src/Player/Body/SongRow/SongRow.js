@@ -1,10 +1,11 @@
 import React from "react";
 import styling from "./SongRow.module.css";
 import { useDataLayerValue } from "../../../Context/DataLayer";
+import { RiBarChartGroupedLine } from "react-icons/ri";
 
 export default function SongRow({ track, sequence }) {
   // eslint-disable-next-line no-empty-pattern
-  const [{}, dispatch] = useDataLayerValue();
+  const [{ song_status }, dispatch] = useDataLayerValue();
 
   let playSong = () => {
     dispatch({
@@ -39,7 +40,11 @@ export default function SongRow({ track, sequence }) {
           </p>
         </div>
       </div>
-      <div className={styling.timing}></div>
+      <div className={styling.timing}>
+        {song_status?.url === track.preview_url && song_status?.playing ? (
+          <RiBarChartGroupedLine />
+        ) : null}
+      </div>
     </div>
   );
 }

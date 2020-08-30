@@ -11,22 +11,25 @@ import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import { useDataLayerValue } from "../../Context/DataLayer";
 import PauseCircleOutlineIcon from "@material-ui/icons/PauseCircleOutline";
 import UseAudio from "./audio";
+
 export default function Footer() {
   const [{ current_song }] = useDataLayerValue();
-  const [duration, playing, toggle, volumeLevel, setVolumeLevel] = UseAudio(
-    current_song?.URL
-  );
+  const [
+    count,
+    duration,
+    playing,
+    toggle,
+    volumeLevel,
+    setVolumeLevel,
+  ] = UseAudio(current_song?.URL);
 
   if (!current_song) {
     return null;
   }
-  if (duration) {
-    console.log("hello hello", duration);
-  }
+
   let handleChange = (event, newValue) => {
     setVolumeLevel(newValue);
   };
-
   return (
     <div className={styling.Footer}>
       <div className={styling.FooterLeft}>
@@ -58,8 +61,17 @@ export default function Footer() {
           <SkipNextIcon className={styling.footerIcon} />
           <RepeatIcon className={styling.footerGreen} />
         </div>
-        <div className={styling.lengthSlider}>
-          <Slider />
+        <div className={styling.lengthSliderDiv}>
+          {count}
+          <Slider
+            className={styling.lengthSlider}
+            disabled={true}
+            value={count}
+            step={count}
+            max={duration}
+            min={0}
+          />
+          {duration}
         </div>
       </div>
       <div className={styling.FooterRight}>

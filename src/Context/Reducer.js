@@ -35,6 +35,11 @@ const reducer = (state, action) => {
         ...state,
         current_song: action.current_song,
       };
+    case "CURRENT_SONG_STATUS":
+      return {
+        ...state,
+        song_status: action.song_status,
+      };
     default:
       return state;
   }

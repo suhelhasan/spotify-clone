@@ -3,12 +3,12 @@ import styling from "./Body.module.css";
 import Header from "./Header/Header";
 import { useDataLayerValue } from "../../Context/DataLayer";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-// import PauseIcon from "@material-ui/icons/Pause";
+import PauseIcon from "@material-ui/icons/Pause";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import SongRow from "./SongRow/SongRow";
 
 export default function Body({ spotify }) {
-  let [{ user_playlist }] = useDataLayerValue();
+  let [{ user_playlist, song_status }] = useDataLayerValue();
 
   return (
     <div className={styling.Body}>
@@ -27,8 +27,12 @@ export default function Body({ spotify }) {
       </div>
       <div className={styling.bodySongs}>
         <div className={styling.bodyIcons}>
-          <PlayArrowIcon className={styling.body_shuffle} />
-          {/* <FavoriteIcon fontSize="large" /> */}
+          {song_status?.playing ? (
+            <PauseIcon className={styling.body_shuffle} />
+          ) : (
+            <PlayArrowIcon className={styling.body_shuffle} />
+          )}
+
           <MoreHorizIcon />
         </div>
         {user_playlist?.tracks.items.map((item, index) => (
