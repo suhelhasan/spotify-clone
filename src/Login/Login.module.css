@@ -2,12 +2,17 @@
   display: grid;
   place-items: center;
   height: 100vh;
-  /* background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1)); */
-  /* background: linear-gradient(#484848, #212121); */
+  /* background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
+  background: linear-gradient(#484848, #212121); */
   background-color: #212121;
 }
 .Login > img {
   width: 30%;
+}
+@media screen and (max-width: 800px) {
+  .Login > img {
+    width: 60%;
+  }
 }
 .Login > a {
   padding: 15px 25px;

@@ -15,6 +15,9 @@
   min-width: 70px;
   height: 40px;
 }
+.bars {
+  display: none;
+}
 .moveLeft,
 .moveRight {
   font-size: 20px;
@@ -53,6 +56,77 @@
   /* padding: 0; */
 }
 .userDownArrow {
-  font-size: 13px;
+  font-size: 10px;
   /* padding: 0; */
+}
+
+@media screen and (max-width: 800px) {
+  .Header {
+    /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+    margin-bottom: 0px;
+  }
+
+  .HeaderLeft {
+    /* background-color: #fff; */
+    /* color: grey; */
+    /* display: flex;
+    align-items: center;
+    border-radius: 30px;
+    padding: 0 10px;
+    flex: 0.5;
+    min-width: 70px;
+    height: 40px; */
+    /* display: none; */
+  }
+  .bars {
+    display: flex;
+    font-size: 25px;
+    margin-right: 25px;
+    cursor: pointer;
+    /* background-color: #151216; */
+  }
+  .moveLeft,
+  .moveRight {
+    /* font-size: 20px;
+    margin-right: 25px;
+    background-color: #151216;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; */
+    display: none;
+  }
+  /* .moveRight {
+    background-color: #28232c;
+  } */
+
+  .HeaderRight {
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    padding: 0 9px 0 2px;
+    border-radius: 20px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .userAvatar {
+    width: 27px !important;
+    height: 27px !important;
+  }
+  .userName {
+    margin: 0 7px;
+    font-weight: bold;
+    font-size: 14px;
+    /* padding: 0; */
+  }
+  .userDownArrow {
+    font-size: 10px;
+    /* padding: 0; */
+  }
 }

@@ -40,6 +40,11 @@ const reducer = (state, action) => {
         ...state,
         song_status: action.song_status,
       };
+    case "SUFFLE_MENU":
+      return {
+        ...state,
+        suffle: action.suffle,
+      };
     default:
       return state;
   }

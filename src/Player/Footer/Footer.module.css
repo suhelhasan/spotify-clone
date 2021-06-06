@@ -79,3 +79,91 @@
   width: 150px !important;
   margin: 0 10px;
 }
+@media screen and (max-width: 800px) {
+  .Footer {
+    /* position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  height: 13vh;
+  width: 100%;
+  background-color: #282828;
+  padding: 20px; */
+    padding: 5px;
+    /* bottom: 50px; */
+  }
+
+  .FooterLeft {
+    flex: 0.3;
+    display: flex;
+    align-items: center;
+    color: #fff;
+  }
+  .albumLogo {
+    display: none;
+    /* height: 60px;
+  width: 60px;
+  margin-right: 20px;
+  object-fit: contain; */
+  }
+  .footerSonginfo > h4 {
+    /* margin-bottom: 5px; */
+    display: none;
+  }
+  .footerSonginfo > p {
+    /* font-size: 12px; */
+    display: none;
+  }
+
+  .FooterCenter {
+    flex: 0.4;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .allButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 300px;
+  }
+  .lengthSliderDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: grey;
+  }
+  .lengthSlider {
+    color: grey !important;
+    width: 350px !important;
+    margin: 0 10px;
+  }
+  .footerGreen {
+    color: #1ed15e;
+  }
+  .footerIcon:hover,
+  .footerGreen:hover {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.2) !important;
+  }
+
+  .FooterRight {
+    flex: 0.3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #fff;
+  }
+  .volumeButton {
+    font-size: 21px !important;
+  }
+  .slider {
+    color: #1ed15e !important;
+    width: 60px !important;
+    margin: 0 10px;
+  }
+}

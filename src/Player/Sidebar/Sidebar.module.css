@@ -23,3 +23,45 @@
   width: 90%;
   margin: 10px auto;
 }
+
+@media screen and (max-width: 800px) {
+  .Sidebar {
+    flex: 0.17;
+    height: 100vh;
+    color: #fff;
+    min-width: 230px;
+    background-color: #040404;
+    padding: 0 5px;
+  }
+
+  .logo {
+    object-fit: contain;
+    height: 85px;
+    padding: 10px;
+    margin-right: auto;
+    margin-top: 50px;
+  }
+  .sidebarTitle {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 12px;
+  }
+  .Sidebar > hr {
+    border: 1px solid #282828;
+    width: 90%;
+    margin: 10px auto;
+  }
+}
+.hideCross {
+  display: none;
+}
+.showCross {
+  width: 100%;
+  position: fixed;
+  left: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  /* right: 50px; */
+  top: 15px;
+  /* margin-bottom: 30px; */
+}

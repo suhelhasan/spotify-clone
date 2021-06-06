@@ -54,3 +54,66 @@
   transition: 100ms transform ease-in;
   transform: scale(1.08);
 }
+
+@media screen and (max-width: 800px) {
+  .Body {
+    padding-left: 12px;
+    /* padding: 14px 24px 100px 24px;
+    flex: 0.83;
+    height: 100vh;
+    color: #fff;
+    overflow-y: overlay;
+    background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1)); */
+  }
+  .Body::-webkit-scrollbar {
+    /* display: none; */
+  }
+  .BodyInfo {
+    /* display: flex;
+    align-items: flex-end;
+    padding: 10px; */
+  }
+  .BodyInfo > img {
+    /* border: 1px solid red; */
+    height: 40vw;
+    /* margin-right: 10px; */
+    /* box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5); */
+  }
+  .infoText {
+    flex: 1;
+  }
+  .infoText > h2 {
+    /* border: 1px solid red; */
+
+    font-size: 2em;
+    /* margin-bottom: 10px; */
+  }
+  .infoText > p {
+    /* font-size: 14 px;
+    font-weight: bold;
+    color: rgb(185, 184, 184); */
+  }
+  .bodySongs {
+    /* margin: 10px -30px; */
+  }
+  .bodyIcons {
+    /* display: flex;
+    align-items: center;
+    color: rgb(182, 181, 181); */
+  }
+
+  .body_shuffle {
+    font-size: 40px !important;
+    margin: 20px 25px 20px 50px;
+    background-color: #1db954;
+    color: #fff;
+    padding: 1px !important;
+    border-radius: 50%;
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .body_shuffle:hover {
+    transition: 100ms transform ease-in;
+    transform: scale(1.08);
+  }
+}
